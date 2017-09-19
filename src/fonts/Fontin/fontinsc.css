@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'Fontin Sans CR SC';
+    src: local('Fontin Sans CR SC'), local('FontinSansCR-SC'), url('fontinsanscrsc.woff2') format('woff2'), url('fontinsanscrsc.woff') format('woff'), url('fontinsanscrsc.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}

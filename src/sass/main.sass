@@ -1,0 +1,656 @@
+@import "fonts"
+@import "libs"
+@import "vars"
+@import "smart-grid"
+
+*::-webkit-input-placeholder
+	color: #888
+	opacity: 1
+
+*:-moz-placeholder
+	color: #888
+	opacity: 1
+
+*::-moz-placeholder
+	color: #888
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #888
+	opacity: 1
+
+//Preloader
+.preloader
+	position: fixed
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background-color: #151515
+	z-index: 100
+@mixin opacity($opacity)
+	opacity: $opacity / 100
+	filter: alpha(opacity=$opacity)
+
+.pulse
+	position: relative
+	left: 50%
+	top: 50vh
+	margin:
+		left: -40px
+		top: -40px
+	&:before, &:after
+		content: ''
+		border: 5px solid #323232
+		width: 80px
+		height: 80px
+		border-radius: 500px
+		position: absolute
+	&:before
+		animation: pulse-outer .8s ease-in infinite
+	&:after
+		animation: pulse-inner .8s linear infinite
+
+@keyframes pulse-outer
+	0%
+		@include opacity(100)
+	50%
+		@include opacity(50)
+	100%
+		@include opacity(0)
+
+@keyframes pulse-inner
+	0%
+		transform: scale(0)
+		@include opacity(0)
+	100%
+		transform: scale(1)
+		@include opacity(100)
+
+//Body
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: rgba(0,0,0,.25)
+	border-color: rgba(0,0,0,.25)
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: $accent
+	border: 1px solid $accent
+body input:required:valid,
+body textarea:required:valid
+	color: #000
+
+html, body
+	height: 100%
+
+a
+	color: $accent
+	text-decoration: none
+
+h3
+	text-transform: uppercase
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.75
+	font-family: $default-font
+	overflow-x: hidden
+	background-color: $darken
+	color: $lighten
+	margin: 0
+	opacity: 1
+	&.ishome
+		.header_main
+			min-height: 700px
+			height: 100vh
+			background-size: cover
+			background: center fixed
+			overflow: hidden
+			.header_topline
+				+row-flex()
+				padding-top: 40px
+
+.logo
+	position: absolute
+	margin-left: 10%
+	z-index: 1
+	img
+		width: 35px
+		height: auto
+
+.hamburger
+	position: fixed
+	right: 5%
+	z-index: 100
+	background-color: rgba(0, 0, 0, .4)
+	width: 65px
+	height: 54px
+
+.hamburger-box
+	margin-left: -2.5px
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before
+	background-color: $lighten
+	border-radius: 0
+	height: 3px
+
+.top_wrapper
+	z-index: 10
+	+row-flex()
+	height: 100%
+	justify-content: center
+	align-items: center
+	.name_wrapper
+		visibility: visible
+		+col()
+		transition: all 1s ease
+		margin-bottom: 5%
+		h1
+			text-align: center
+			font-family: $bold-font
+			font-size: 2.7em
+			padding: 6px 50px
+			border: 5px solid transparent
+			outline: 2px solid $lighten
+			//outline-offset: 5px  //don't work in ie/edge
+			//border: 5px solid $lighten
+			box-shadow: 0 0 0 5px $lighten inset
+			text-transform: uppercase
+			animation-delay: .8s
+			background-color: rgba(0,0,0,.2)
+			letter-spacing: 2px
+		p
+			text-align: center
+			text-transform: uppercase
+			animation-delay: .9s
+			letter-spacing: 2px
+
+.navigations
+	position: fixed
+	width: 100%
+	height: 100%
+	background-color: rgba(0,0,0,.85)
+	z-index: 50
+	right: 0
+	top: 0
+	display: none
+	ul, li
+		list-style-type: none
+		padding: 0
+		margin: 0
+	ul
+		margin-top: 150px
+		text-align: center
+		animation-duration: .1s
+		li
+			&:nth-child(1) a
+				animation-delay: .2s
+			&:nth-child(2) a
+				animation-delay: .4s
+			&:nth-child(3) a
+				animation-delay: .6s
+			&:nth-child(4) a
+				animation-delay: .8s
+		a
+			letter-spacing: 2px
+			color: #fff
+			display: block
+			text-transform: uppercase
+			text-decoration: none
+			font-size: 16px
+			opacity: 0
+			position: relative
+			padding-top: 20px
+			height: 60px
+			outline: none
+			&:hover, &:active, &:focus
+				transition: all .4s ease
+				color: $accent
+
+.hidden
+	display: none
+
+.img-responsive
+	display: inline-block
+	max-width: 235px
+	height: auto
+
+section, header
+	//position: relative
+
+section
+	padding: 70px 0 50px
+	h2
+		text-align: center
+		font-size: 24px
+		text-transform: uppercase
+		margin: 0 0 20px
+		letter-spacing: 3px
+		font-family: $bold-font
+
+
+.section_title
+	padding-bottom: 30px
+
+.s_descr
+	font-family: $bold-font
+	position: relative
+	text-align: center
+	text-transform: uppercase
+	font-size: 12px
+	letter-spacing: 3px
+	margin-bottom: 80px
+	&::after
+		content: ''
+		width: 150px
+		height: 1px
+		background-color: $lighten
+		position: absolute
+		left: 50%
+		margin-left: -75px
+		margin-top: 60px
+
+.s_about
+	p:nth-child(even)
+		color: $accent
+
+.s_about,
+	p
+		margin-bottom: 25px
+	ul,
+	li
+		margin: 0
+		padding: 0
+		list-style-type: none
+	li
+		margin-bottom: 10px
+	.soc_wrp
+		margin-top: 10px
+
+.content_wrap
+	+row-flex()
+	+wrapper()
+	justify-content: center
+	.content, .foto, .skills
+		+col()
+		+col-3()
+		+col-lg-12()
+		// +col-md-12()
+		// +col-sm-12()
+		animation-duration: 1s
+		flex-wrap: wrap
+		margin-left: 40px
+		margin-right: 40px
+		text-align: center
+		padding: 10px 20px
+		color: $textc
+		h2
+			font-size: 16px
+			color: $lighten
+			margin-bottom: 30px
+		img
+			border-radius: 50%
+			margin-bottom: 40px
+		h3
+			letter-spacing: 3px
+			padding-bottom: 30px
+		h3, p
+			font-family: $content-font
+			font-size: 14px
+		ul
+			li
+				list-style-type: none
+				font-size: 14px
+				font-family: $content-font
+				padding-bottom: 10px
+				margin: 0
+
+.soc_wrp
+	ul
+		li
+			list-style-type: none
+			display: inline-block
+			padding: 0 2px
+			i
+				font-size: 20px
+				color: $accent
+
+.content_wrap
+	.content, .skills
+		h2, p, ul
+			text-align: left
+
+.resume_container
+	+row-flex()
+	justify-content: center
+	.work, .studies
+		+wrapper()
+		+col()
+		+col-4()
+		+col-lg-6()
+		+col-md-6()
+		+col-sm-12()
+		// display: flex
+		// flex-direction: column
+		// +col-xs-12()
+		h3
+			margin-top: 30px
+			text-transform: uppercase
+	.work
+		margin-right: -10px
+		padding-right: 20px
+		text-align: right
+		border-right: $textc 1px solid
+	.studies
+		text-align: left
+		padding-left: 20px
+
+.resume_icon
+	margin-bottom: 50px
+	font-size: 40px
+
+.resume_item
+	font-family: $content-font
+	margin-bottom: 50px
+	.resume_years
+		display: inline-block
+		padding: 0 12px
+		margin-bottom: 20px
+		background-color: $accent
+		font-family: $default-font
+		font-size: 14px
+		font-weight: 600
+	.resume_descr
+		font-style: italic
+		display: block
+		strong
+			font-style: normal
+			text-transform: uppercase
+	.resume_text
+		color: $textc
+		font-size: 14px
+
+.s_portfolio
+	padding-bottom: 100px
+
+.portfolio_container
+	ul
+		+col()
+		+col-12()
+		text-align: center
+		margin-bottom: 60px
+		padding: 0
+		li
+			color: $textc
+			margin: 0 20px
+			text-transform: uppercase
+			list-style-type: none
+			display: inline-block
+			font-size: 12px
+			letter-spacing: 2px
+			cursor: pointer
+			text-decoration: none
+			position: relative
+			&:hover
+				transition: .3s ease
+				color: $lighten
+		li::before
+			content: ''
+			position: absolute
+			height: 2px
+			width: 100%
+			background-color: $accent
+			visibility: hidden
+			left: 0
+			bottom: -3px
+			transform: scaleX(0)
+			transition: all .3s ease-in-out 0s
+		li:hover::before
+			visibility: visible
+			transform: scaleX(1)
+		.active
+			//font-weight: 600
+			text-decoration: none
+			color: $accent
+			line-height: 2
+			position: relative
+			transition: 1s ease all
+	.portfolio_items-container
+		+row-flex()
+		+wrapper()
+		justify-content: center
+
+.portfolio_item
+	+col()
+	+col-3()
+	+col-md-4()
+	+col-sm-6()
+	+col-xs-12()
+	text-align: center
+	margin: 7px
+	position: relative
+	img
+		width: 100%
+		height: 100%
+	.portfolio_item-content
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		position: absolute
+		left: 0
+		top: 0
+		height: 100%
+		width: 100%
+		background-color: rgba(0, 0, 0, .8)
+		opacity: 0
+		transition: all .5s
+	&:hover .portfolio_item-content
+		opacity: 1
+	h3
+		color: $lighten
+		font-size: 14px
+		letter-spacing: 1.5px
+	p
+		color: $textc
+		font-size: 14px
+		font-family: $content-font
+		letter-spacing: 1px
+	a
+		color: $lighten
+		font-family: $content-font
+		background-color: transparent
+		border: 1px solid $lighten
+		padding: 5px
+		font-size: 14px
+		&:hover
+			transition: .3s all ease
+			border: 1px solid $accent
+			color: $accent
+
+.portfolio_item-descr
+	position: relative
+	background-color: $lighten
+	margin: auto
+	max-width: 600px
+	color: $darken
+	line-height: 0
+	transition: all .3s ease-in-out
+	//transition: .3s ease all
+	h3,
+	p
+		padding: 20px
+		padding-bottom: 0
+		line-height: 1.75
+	h3
+		padding-top: 35px
+		margin-bottom: 0
+		text-align: center
+	p
+		font-family: $content-font
+		font-size: 14px
+		color: #555
+	img
+		margin-top: 10px
+		width: 100%
+
+//Magnific-Popup Customize
+//items zoom-in effect
+.my-mfp-zoom-in
+	.portfolio_item-descr
+		opacity: 0
+		transform: scale(0.95)
+	&.mfp-ready .portfolio_item-descr
+		opacity: 1
+		transform: scale(1)
+	&.mfp-removing .portfolio_item-descr
+		transform: scale(0.95)
+		opacity: 0
+	&.mfp-bg
+		opacity: 0
+		transition: opacity 0.3s ease-out
+	&.mfp-ready.mfp-bg
+		opacity: 0.8
+	&.mfp-removing.mfp-bg
+		opacity: 0
+
+//foto fade effect
+.mfp-fade
+	&.mfp-bg
+		opacity: 0
+		transition: all .5s ease-out
+	&.mfp-ready
+		opacity: 1
+	&.mfp-removing
+    	opacity: 0
+	&.mfp-wrap .mfp-content
+		opacity: 0
+		transition: all .5s ease-out
+	&.mfp-ready .mfp-content
+		opacity: 1
+	&.mfp-removing .mfp-content
+    	opacity: 0
+
+
+.s_contacts
+	background-color: $lighten
+	color: $darken
+	padding-bottom: 100px
+	.s_descr
+		&::after
+			background-color: $darken
+
+.contacts_wrapper
+	+row-flex()
+	+wrapper()
+	justify-content: center
+.contact_box-wrapper,
+.contact_form
+	+col()
+	+col-6()
+	+col-sm-12()
+	font-family: $content-font
+	//padding-left: 100px
+.contact_box-wrapper
+	padding-left: 50px
+.contact_form
+	padding-right: 50px
+
+
+.contact_box
+	margin-bottom: 25px
+	h3, p
+		margin: 0
+	h3
+		letter-spacing: 2px
+		font-size: 15px
+	p
+		color: #666
+		font-size: 14px
+		font-family: $content-font
+
+.form-group
+	color: #666
+	display: block
+	margin-bottom: 20px
+	.star
+		font-weight: 700
+		font-size: 18px
+	.text-danger
+		font-family: $content-font
+		color: $accent
+		font-size: 12px
+		margin-top: 5px
+		display: block
+		ul,
+		li
+			margin: 0
+			padding: 0
+			list-style-type: none
+
+.main_form
+	input,
+	textarea
+		display: block
+		width: 100%
+		border: 1px solid $textc
+		margin-top: 5px
+		line-height: 3
+		letter-spacing: 1px
+		text-indent: 12px
+		font-size: 14px
+		background-color: transparent
+		font-family: $content-font
+	button
+		transition: all .2s ease-out
+		border: none
+		background-color: $accent
+		cursor: pointer
+		text-transform: uppercase
+		line-height: 40px
+		color: $lighten
+		padding: 0 25px
+		font-size: 13px
+		font-weight: 600
+		letter-spacing: 1px
+		font-family: $content-font
+		float: right
+		&:hover, &:active
+			transform: scale(1.1)
+
+.contact_icon
+	color: $accent
+	font-size: 32px
+
+.contact_form
+	.star
+		color: $accent
+
+.footer_main
+	padding: 30px 30px
+	+row-flex()
+	+wrapper()
+	.soc_wrp
+		+col()
+		+col-6()
+		+col-xs-12()
+		text-align: right
+		padding-right: 80px
+
+.footer_name
+	+col()
+	+col-6()
+	+col-xs-12()
+	padding-left: 80px
+	letter-spacing: 1px
+	font-family: $content-font
+	color: $textc
+	font-size: 12px
+	align-self: center
+
+@import "media" // Always in the end

@@ -1,0 +1,143 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+    /**/
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+    .s_about
+        .content
+            order: 1
+        .skills
+            order: 2
+    /**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+    .top_wrapper
+        flex-wrap: wrap
+        .name_wrapper
+            margin-bottom: 5%
+            h1
+                font-size: 2.4em
+                border: solid 3px
+                outline: solid 1px
+                letter-spacing: 0
+                line-height: 1.5
+            p
+                padding-left: 10px
+                padding-right: 5px
+                font-size: .9em
+    .s_about
+        .content
+            order: 1
+        .skills
+            order: 2
+
+    .resume_container
+        margin-left: 50px
+        margin-right: 50px
+        .work
+            border: none
+
+    .footer_main
+        padding-top: 50px
+        .footer_name
+            padding-left: 10px
+        .soc_wrp
+            padding-right: 0
+            ul
+                padding-left: 10px
+
+    /**/
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+    .top_wrapper
+        flex-wrap: wrap
+        .name_wrapper
+            margin: 0 30px
+            margin-bottom: 10%
+            h1
+                font-size: 1.7em
+                border: solid 3px
+                outline: solid 1px
+                letter-spacing: 0
+                line-height: 1.5
+                //padding: 5px 10px
+            p
+                padding-left: 10px
+                padding-right: 5px
+                font-size: .9em
+
+    .navigations
+    	ul
+            margin-top: 66px
+
+
+    .content_wrap
+        .content, .skills
+            margin: 0
+
+    .s_contacts
+        .contact_box-wrapper,
+        .contact_form
+            padding-left: 20px
+            padding-right: 10px
+
+    .footer_main
+        padding-top: 50px
+        .footer_name
+            padding-left: 10px
+        .soc_wrp
+            text-align: left
+            ul
+                padding-left: 10px
+
+    /**/
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+    .content_wrap
+        .content, .skills
+            margin: 0
+
+    .resume_container
+        margin-left: 20px
+        margin-right: 20px
+
+
+
+    /**/
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
